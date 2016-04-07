@@ -41,4 +41,7 @@ Rails.application.configure do
 
   # Needed for Devise authentication framework
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Setting up to the Peperclip accesse imagemagick
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

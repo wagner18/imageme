@@ -43,7 +43,7 @@ class MagemesController < ApplicationController
 	private
 
 	def mageme_params
-		params.require(:mageme).permit(:title, :description)
+		params.require(:mageme).permit(:title, :description, :image)
 	end
 
 	def find_mageme

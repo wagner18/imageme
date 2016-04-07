@@ -1,5 +1,6 @@
 - @magemes.each do |mageme|
-	%h2= link_to mageme.title, mageme
+	= link_to(image_tag mageme.image.url('medium'))
+	%h2= link_to(mageme.title, mageme)
 
 
 
