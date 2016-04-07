@@ -1,0 +1,6 @@
+%h1= @mageme.title
+%p= @mageme.description
+
+= link_to "Back", root_path
+= link_to "Edit", edit_mageme_path
+= link_to "Delete", mageme_path, method: :delete, data: { confirm: "Are you sure?"}
