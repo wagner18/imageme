@@ -10,11 +10,11 @@ class MagemesController < ApplicationController
 	end
 
 	def new
-		@mageme = Mageme.new
+		@mageme = current_user.mageme.build
 	end
 
 	def create
-		@mageme = Mageme.new(mageme_params)
+		@mageme = current_user.mageme.build(mageme_params)
 
 		if(@mageme.save)
 			redirect_to(@mageme, notice: "Successfully created new Mageme")

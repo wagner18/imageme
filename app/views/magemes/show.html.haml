@@ -1,5 +1,8 @@
 %h1= @mageme.title
 %p= @mageme.description
+%p
+Submitted by
+= @mageme.user.email
 
 = link_to "Back", root_path
 = link_to "Edit", edit_mageme_path
