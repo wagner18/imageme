@@ -9,8 +9,10 @@
 	
 	%nav.navbar.navbar-default
 		.container
-			.navbar-brand= link_to "Mageme cool", root_path
-
+			.navbar-brand
+				%span.logo.glyphicon.glyphicon-eye-open
+				= link_to "Mageme cool", root_path
+				
 			- if user_signed_in?
 				%ul.nav.navbar-nav.navbar-right
 					%li= link_to "New Mageme", new_mageme_path

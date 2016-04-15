@@ -1,10 +1,26 @@
-= image_tag @mageme.image.url(:medium) 
-%h1= @mageme.title
-%p= @mageme.description
-%p
-Submitted by
-= @mageme.user.email
+#mageme_show.row
+	.col-md-8.col-md-offset-2
+		.panel.panel-default
+			.panel-heading.mageme_image
+				= image_tag @mageme.image.url
+			.panel-body
+				%h1= @mageme.title
+				%p.description= @mageme.description
+				%p
+				Submitted by
+				= @mageme.user.email
 
-= link_to "Back", root_path
-= link_to "Edit", edit_mageme_path
-= link_to "Delete", mageme_path, method: :delete, data: { confirm: "Are you sure?"}
+			.panel-footer
+				.row
+					.col-md-6
+						%p.user
+						Submiteed by
+						= @mageme.user.email
+					.col-md-6
+						.btn-group.pull-right
+							= link_to like_mageme_path(@mageme), method: :put, class: "btn btn-default" do
+								%span.glyphicon.glyphicon-heart
+								= @mageme.get_upvotes.size
+							- if(user_signed_in? and current_user.email == @mageme.user.email)
+								= link_to "Edit", edit_mageme_path, class: "btn btn-default"
+								= link_to "Delete", mageme_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-default"

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to:  "magemes#index"
 
-  resources :magemes
+  resources :magemes do
+    member do
+      put "like", to: "magemes#upvote"
+    end
+  end
 
 
 

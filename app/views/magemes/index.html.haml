@@ -1,6 +1,12 @@
-- @magemes.each do |mageme|
-	= link_to(image_tag mageme.image.url('medium'))
-	%h2= link_to(mageme.title, mageme)
+#magemes.transitions-enabled
+	- @magemes.each do |mageme|
+		.box.panel.panel-default
+			= link_to (image_tag mageme.image.url), mageme
+			.penel-body
+				%h2= link_to mageme.title, mageme 
+				%p.user
+				Submitted By
+				= mageme.user.email
 
 
 
